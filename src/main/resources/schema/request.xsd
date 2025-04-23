@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/soap"
+           xmlns:tns="http://example.com/soap"
+           elementFormDefault="qualified">
+
+    <xs:element name="TextToPdfRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="text" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TextToPdfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pdfContent" type="xs:base64Binary"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
