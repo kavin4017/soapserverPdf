@@ -1,5 +1,7 @@
 package com.example.soap.endpoint;
 
+import com.example.soap.model.PdfToTextRequest;
+import com.example.soap.model.PdfToTextResponse;
 import com.example.soap.model.TextToPdfRequest;
 import com.example.soap.model.TextToPdfResponse;
 import com.example.soap.service.PdfService;
@@ -22,6 +24,14 @@ public class PdfEndpoint {
     public TextToPdfResponse generatePdf(@RequestPayload TextToPdfRequest request) throws Exception {
         TextToPdfResponse response = new TextToPdfResponse();
         response.setPdfContent(pdfService.generatePdf(request.getText()));
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "PdfToTextRequest")
+    @ResponsePayload
+    public PdfToTextResponse processPdf(@RequestPayload PdfToTextRequest request) throws Exception {
+        PdfToTextResponse response = new PdfToTextResponse();
+        response.setText(pdfService.processPdf(request.getPdfContent()));
         return response;
     }
 }

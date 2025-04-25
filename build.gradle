@@ -41,7 +41,7 @@ task genJaxb {
             mkdir(dir: sourcesDir)
 
             xjc(destdir: sourcesDir, package: 'com.example.soap.model') {
-                schema(dir: "src/main/resources/schema", includes: "request.xsd")
+                schema(dir: "src/main/resources/schema", includes: "request.xsd, requestNew.xsd")
                 arg(value: "-wsdl")
             }
         }
